@@ -11,4 +11,7 @@ package client;
  */
 public class gameClient {
     //test
+    public static void main(String[] args) {
+        System.out.println("Hallo");
+    }
 }

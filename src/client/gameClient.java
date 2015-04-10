@@ -10,5 +10,5 @@ package client;
  * @author Juergen
  */
 public class gameClient {
-    
+    //test
 }

@@ -5,6 +5,16 @@
  */
 package client;
 
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.GridBagLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Juergen
@@ -14,8 +24,36 @@ public class StartScreen extends javax.swing.JFrame {
     /**
      * Creates new form StartScreen
      */
+    class ImagePanel extends JPanel {
+        
+        private BufferedImage image;
+        private JButton startButton;
+        
+        public ImagePanel() {
+            this.setLayout(new BorderLayout());
+            startButton = new JButton("Start");
+            startButton.setSize(100, 100);
+            this.add(startButton, BorderLayout.SOUTH);
+            try {
+                image = ImageIO.read(new File(System.getProperty("user.dir") + "\\src\\res\\start_screen.jpg"));
+            } catch (IOException ex) {
+                System.out.println("Error loading picture");
+            }
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(image, 0, 0, 1000, 500, null); 
+        }
+    }
+    
     public StartScreen() {
         initComponents();
+        this.setSize(1000, 500);
+        this.getRootPane().setContentPane(new ImagePanel());
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -28,17 +66,6 @@ public class StartScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

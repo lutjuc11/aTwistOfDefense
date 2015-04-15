@@ -25,10 +25,10 @@ public class StartScreen extends javax.swing.JFrame {
      * Creates new form StartScreen
      */
     class ImagePanel extends JPanel {
-        
+
         private BufferedImage image;
         private JButton startButton;
-        
+
         public ImagePanel() {
             this.setLayout(new BorderLayout());
             startButton = new JButton("Start");
@@ -40,20 +40,20 @@ public class StartScreen extends javax.swing.JFrame {
                 System.out.println("Error loading picture");
             }
         }
-        
+
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(image, 0, 0, 1000, 500, null); 
+            g.drawImage(image, 0, 0, 1000, 500, null);
         }
     }
-    
+
     public StartScreen() {
         initComponents();
         this.setSize(1000, 500);
         this.getRootPane().setContentPane(new ImagePanel());
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**

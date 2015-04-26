@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FrameController">
+   <children>
+      <ImageView fitHeight="476.0" fitWidth="719.0" layoutX="19.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/The_Twisted_Treeline.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="176.0" layoutX="185.0" layoutY="133.0" opacity="0.7" stroke="WHITE" strokeType="INSIDE" width="387.0" />
+      <Button fx:id="btnStart" layoutX="344.0" layoutY="205.0" mnemonicParsing="false" onAction="#onStart" prefHeight="25.0" prefWidth="71.0" text="Start" />
+      <ImageView fitHeight="108.0" fitWidth="147.0" layoutX="185.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/darius.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="110.0" fitWidth="135.0" layoutX="440.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/vayne.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="252.0" layoutX="253.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/title.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnOptions" layoutX="343.0" layoutY="238.0" mnemonicParsing="false" onAction="#onOptions" prefHeight="25.0" prefWidth="71.0" text="Options" />
+      <Button fx:id="btnClose" layoutX="343.0" layoutY="271.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="25.0" prefWidth="71.0" text="Quit" />
+   </children>
+</AnchorPane>

@@ -52,7 +52,7 @@ public class LoadingController implements Initializable {
     public void onConnect(ActionEvent evt) {
         if (!txtNickname.getText().isEmpty() && !txtServerAddress.getText().isEmpty() && !txtServerPort.getText().isEmpty()) {
             try {
-                onOpenChampionSelect()
+                onOpenChampionSelect();
                 //new LoadingThread().start();
             } catch (IOException ex) {
                 Logger.getLogger(LoadingController.class.getName()).log(Level.SEVERE, null, ex);

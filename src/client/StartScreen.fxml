@@ -10,8 +10,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.LoadingController">
-   <children>
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="757.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.StartScreenController">
+    <children>
       <ImageView fitHeight="476.0" fitWidth="719.0" layoutX="19.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/The_Twisted_Treeline.jpg" />

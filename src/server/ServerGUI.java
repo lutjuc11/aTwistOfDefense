@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import server.GameServer;
+import server.GamingServer;
 
 /**
  *
@@ -19,7 +19,7 @@ import server.GameServer;
  */
 public class ServerGUI extends javax.swing.JFrame {
 
-    private GameServer server;
+    private GamingServer server;
     private static boolean running = false;
 
     public ServerGUI() {
@@ -27,7 +27,7 @@ public class ServerGUI extends javax.swing.JFrame {
         this.setSize(600, 400);
         this.setLocationRelativeTo(null);
         try {
-            server = new GameServer(9998, epOutput) {
+            server = new GamingServer(9998, epOutput) {
 
             };
         } catch (IOException ex) {

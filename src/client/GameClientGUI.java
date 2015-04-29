@@ -6,7 +6,7 @@
 package client;
 
 import bl.Unit;
-import client.GameClient;
+import client.GamingClient;
 import com.sun.jmx.remote.internal.ClientCommunicatorAdmin;
 import java.awt.Cursor;
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
-import server.GameServer;
+import server.GamingServer;
 
 /**
  *
@@ -33,7 +33,7 @@ import server.GameServer;
 public class GameClientGUI extends javax.swing.JFrame {
 
     private DefaultListModel<String> model = new DefaultListModel<>();
-    private GameClient gameclient;
+    private GamingClient gameclient;
     private LinkedList<Unit> unitList = new LinkedList<>();
     private DefaultListModel dlm = new DefaultListModel();
 
@@ -134,7 +134,7 @@ public class GameClientGUI extends javax.swing.JFrame {
     private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
         try {
             if (gameclient == null) {
-                gameclient = new GameClient(Integer.parseInt(txtPort.getText()), txtNickname.getText());
+                gameclient = new GamingClient(Integer.parseInt(txtPort.getText()), txtNickname.getText());
                 btnConnect.setText("disconnect");
             } else {
                 if (btnConnect.getText().equals("disconnect")) {

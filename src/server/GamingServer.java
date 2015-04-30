@@ -5,6 +5,7 @@
  */
 package server;
 
+import bl.Unit;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -36,7 +37,7 @@ public class GamingServer {
     private JTextComponent logArea = null;
     private ServerSocket server;
     private ServerThread st;
-    private HashMap<String, ObjectOutputStream> clientMap = new HashMap<>();
+    private HashMap<Integer, Unit> clientMap = new HashMap<>();
 
     public GamingServer(int portnr) throws IOException {
         this.PORTNR = portnr;
@@ -126,18 +127,39 @@ public class GamingServer {
                 os = socket.getOutputStream();
                 ObjectInputStream ois = new ObjectInputStream(is);
                 ObjectOutputStream oos = new ObjectOutputStream(os);
-                Object inputFromClient;
+                Object inputFromClient = "";
+                LinkedList<Unit> unitsOfClient = new LinkedList<>();
 
-                System.out.println("HALLLO MACI");
-                
+                System.out.println("Input from a Client: " + inputFromClient.toString());
+
+                if (inputFromClient instanceof LinkedList) {
+                    unitsOfClient = (LinkedList<Unit>) inputFromClient;
+                    for (Unit unit : unitsOfClient) {
+                        
+                        switch(unit.getTyp()){
+                            case "Champ": clientMap.put(1, unit);break;
+                            case "Nexus": clientMap.put(0, unit);break;
+                            case "Turret": 
+                                if(unit.getDisplayname().equals("OuterTurret")){
+                                    clientMap.put(10, unit);
+                                }else{
+                                    clientMap.put(20, unit);
+                                }break;
+                            case "Minion": clientMap.put(1, unit);break;
+                        }
+                    }
+                }
+
                 while (true) {
                     inputFromClient = (String) ois.readObject();
                     System.out.println("Input from a Client: " + inputFromClient.toString());
-                    if (inputFromClient.equals("###ExitingChat###")) {
+                    System.out.println("Input from a Client: " + inputFromClient.toString());
+                    if (inputFromClient.equals("###ExitingGame###")) {
                         log("Connection closed from: " + socket.getRemoteSocketAddress().toString());
                         oos.writeObject("###GoodBye###");
-                        
                         break;
+                    } else {
+
                     }
                 }
 

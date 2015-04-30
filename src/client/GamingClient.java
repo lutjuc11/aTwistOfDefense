@@ -45,6 +45,7 @@ public class GamingClient {
     private Socket socket;
     private String inputFromClient;
     private String playerName;
+    
 
     static {
         try {

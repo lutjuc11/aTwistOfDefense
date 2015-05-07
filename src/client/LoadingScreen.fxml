@@ -10,34 +10,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="757.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.LoadingScreenController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.LoadingScreenController">
     <children>
       <ImageView fitHeight="476.0" fitWidth="719.0" layoutX="19.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/The_Twisted_Treeline.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="48.0" layoutX="56.0" layoutY="329.0" opacity="0.7" stroke="WHITE" strokeType="INSIDE" width="648.0" />
-      <ProgressBar fx:id="proLoading" layoutX="70.0" layoutY="344.0" prefHeight="18.0" prefWidth="620.0" progress="0.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="245.0" layoutX="56.0" layoutY="59.0" opacity="0.7" stroke="WHITE" strokeType="INSIDE" width="648.0" />
-      <ImageView fitHeight="132.0" fitWidth="323.0" layoutX="219.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="245.0" layoutX="57.0" layoutY="99.0" opacity="0.7" stroke="WHITE" strokeType="INSIDE" width="648.0" />
+      <ImageView fitHeight="132.0" fitWidth="323.0" layoutX="220.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/title.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblNickname" alignment="CENTER" layoutX="87.0" layoutY="173.0" prefHeight="17.0" prefWidth="149.0" text="Nickname" />
-      <Label fx:id="lblServerAddress" alignment="CENTER" layoutX="306.0" layoutY="173.0" prefHeight="17.0" prefWidth="149.0" text="Server-Address" />
-      <TextField fx:id="txtNickname" layoutX="87.0" layoutY="209.0" />
-      <TextField fx:id="txtServerAddress" layoutX="274.0" layoutY="209.0" prefHeight="25.0" prefWidth="213.0" />
-      <Label fx:id="lblServerPort" alignment="CENTER" layoutX="526.0" layoutY="173.0" prefHeight="17.0" prefWidth="149.0" text="Server-Port" />
-      <TextField fx:id="txtServerPort" layoutX="526.0" layoutY="209.0" />
-      <Button fx:id="btnConnect" layoutX="236.0" layoutY="257.0" mnemonicParsing="false" onAction="#onConnect" prefHeight="25.0" prefWidth="290.0" text="Connect to Server" />
-      <ImageView fitHeight="86.0" fitWidth="100.0" layoutX="112.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="lblNickname" alignment="CENTER" layoutX="88.0" layoutY="230.0" prefHeight="17.0" prefWidth="149.0" text="Nickname" />
+      <Label fx:id="lblServerAddress" alignment="CENTER" layoutX="304.0" layoutY="230.0" prefHeight="17.0" prefWidth="149.0" text="Server-Address" />
+      <TextField fx:id="txtNickname" layoutX="87.0" layoutY="263.0" />
+      <TextField fx:id="txtServerAddress" layoutX="275.0" layoutY="263.0" prefHeight="25.0" prefWidth="213.0" />
+      <Label fx:id="lblServerPort" alignment="CENTER" layoutX="526.0" layoutY="230.0" prefHeight="17.0" prefWidth="149.0" text="Server-Port" />
+      <TextField fx:id="txtServerPort" layoutX="526.0" layoutY="263.0" />
+      <Button fx:id="btnConnect" layoutX="236.0" layoutY="299.0" mnemonicParsing="false" onAction="#onConnect" prefHeight="25.0" prefWidth="290.0" text="Connect to Server" />
+      <ImageView fitHeight="86.0" fitWidth="100.0" layoutX="113.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../res/lucian.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="92.0" fitWidth="109.0" layoutX="546.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" scaleX="-1">
+      <ImageView fitHeight="92.0" fitWidth="109.0" layoutX="546.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" scaleX="-1">
          <image>
             <Image url="@../res/singed.png" />
          </image>

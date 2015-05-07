@@ -143,8 +143,8 @@ public class ServerGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ServerGUI().setVisible(true);
-                new GameClientGUI().setVisible(true);
-                new GameClientGUI().setVisible(true);
+                //new GameClientGUI().setVisible(true);
+                //new GameClientGUI().setVisible(true);
             }
         });
     }

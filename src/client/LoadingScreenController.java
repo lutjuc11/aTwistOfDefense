@@ -6,18 +6,19 @@
 package client;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URL;
-import java.util.Random;
+import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -25,9 +26,6 @@ import javafx.stage.Stage;
  * @author Juergen
  */
 public class LoadingScreenController implements Initializable {
-
-    @FXML
-    private ProgressBar proLoading;
 
     @FXML
     private TextField txtNickname;
@@ -38,6 +36,8 @@ public class LoadingScreenController implements Initializable {
     @FXML
     private TextField txtServerPort;
 
+    private GamingClient gc;
+
     /**
      * Initializes the controller class.
      */
@@ -47,53 +47,39 @@ public class LoadingScreenController implements Initializable {
     }
 
     @FXML
-    public void onConnect(ActionEvent evt) {
+    public void onConnect(ActionEvent evt) throws IOException, InterruptedException, ClassNotFoundException {
         if (!txtNickname.getText().isEmpty() && !txtServerAddress.getText().isEmpty() && !txtServerPort.getText().isEmpty()) {
             try {
+                InetAddress inet = InetAddress.getByName(txtServerAddress.getText());
+                int portnr = Integer.parseInt(txtServerPort.getText());
+                gc = new GamingClient(inet, portnr, txtNickname.getText());
                 onOpenChampionSelect();
-                //new LoadingThread().start();
-            } catch (Exception ex) {
-                System.out.println(ex.toString());
+            } catch (UnknownHostException ex) {
+                JOptionPane.showMessageDialog(null, "Host Addresse nicht gültig!");
+                txtServerAddress.setText("");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Portnummer nicht gültig!");
+                txtServerPort.setText("");
             }
         }
-    }
-
-    class LoadingThread extends Thread {
-
-        @Override
-        public void run() {
-            Random rand = new Random();
-            for (int i = 1; i <= 100; i++) {
-                try {
-                    double value = i;
-                    proLoading.setProgress(value / 100.0);
-                    if (i < 50) {
-                        Thread.sleep(rand.nextInt(200));
-                    } else {
-                        Thread.sleep(20);
-                    }
-                } catch (InterruptedException ex) {
-                    System.out.println("Fatal Error @ Loading");
-                }
-            }
-            try {
-                onOpenChampionSelect();
-            } catch (Exception ex) {
-                System.out.println("FATAL ERROR: " + ex.toString());
-            }
-        }
-
     }
 
     @FXML
-    public void onOpenChampionSelect() throws IOException, InterruptedException {
-        Stage stage = (Stage) proLoading.getScene().getWindow();
+    public void onOpenChampionSelect() throws IOException {
+        Stage stage = (Stage) txtNickname.getScene().getWindow();
         stage.close();
-        Parent root = FXMLLoader.load(getClass().getResource("ChampionSelectScreen.fxml"));
-        Scene scene = new Scene(root);
 
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "ChampionSelectScreen.fxml"
+                )
+        );
+        Parent root = loader.load();
+        ChampionSelectScreenController controller = loader.<ChampionSelectScreenController>getController();
+        controller.setGamingClient(gc);
+        
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    
 }

@@ -5,8 +5,6 @@
  */
 package client;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
-import java.awt.TextArea;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -15,20 +13,8 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
-import server.GamingServer;
 
 /**
  *
@@ -37,7 +23,7 @@ import server.GamingServer;
 public class GamingClient {
 
     private int portnr;
-    private static InetAddress addr;
+    private InetAddress addr;
     private OutputStream os;
     private ObjectOutputStream oos;
     private InputStream is;
@@ -47,17 +33,11 @@ public class GamingClient {
     private String playerName;
     
 
-    static {
-        try {
-            addr = InetAddress.getLocalHost();
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(GamingClient.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public GamingClient(int portnr, String playerName) throws IOException, ClassNotFoundException {        
+    public GamingClient(InetAddress addr, int portnr, String playerName) throws IOException, ClassNotFoundException {        
         this.portnr = portnr;
         this.playerName = playerName;
+        this.addr = addr;
+        
         socket = new Socket(addr, portnr);
         os = socket.getOutputStream();
         oos = new ObjectOutputStream(os);

@@ -16,12 +16,21 @@ import javafx.fxml.Initializable;
  */
 public class ChampionSelectScreenController implements Initializable {
 
+    private GamingClient gc;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    
+    public void setGamingClient(GamingClient gc)
+    {
+        this.gc = gc;
+    }
+    
+    
     
 }

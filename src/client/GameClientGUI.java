@@ -132,26 +132,7 @@ public class GameClientGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_onClosing
 
     private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
-        try {
-            if (gameclient == null) {
-                gameclient = new GamingClient(Integer.parseInt(txtPort.getText()), txtNickname.getText());
-                btnConnect.setText("disconnect");
-            } else {
-                if (btnConnect.getText().equals("disconnect")) {
-                    gameclient.sendData("###ExitingChat###");
-                    btnConnect.setText("connect");
-                    gameclient = null;
-                }
-            }
-        } catch (IOException ex) {
-            //Logger.getLogger(ClientGUI.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Sorry, server is currently not running");
-            btnConnect.setText("connect");
-            gameclient = null;
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GameClientGUI.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
+        
     }//GEN-LAST:event_btnConnectActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

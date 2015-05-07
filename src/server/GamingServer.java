@@ -141,9 +141,9 @@ public class GamingServer {
                             case "Nexus": clientMap.put(0, unit);break;
                             case "Turret": 
                                 if(unit.getDisplayname().equals("OuterTurret")){
-                                    clientMap.put(10, unit);
+                                    clientMap.put(5, unit);
                                 }else{
-                                    clientMap.put(20, unit);
+                                    clientMap.put(10, unit);
                                 }break;
                             case "Minion": clientMap.put(1, unit);break;
                         }
@@ -152,7 +152,6 @@ public class GamingServer {
 
                 while (true) {
                     inputFromClient = (String) ois.readObject();
-                    System.out.println("Input from a Client: " + inputFromClient.toString());
                     System.out.println("Input from a Client: " + inputFromClient.toString());
                     if (inputFromClient.equals("###ExitingGame###")) {
                         log("Connection closed from: " + socket.getRemoteSocketAddress().toString());
